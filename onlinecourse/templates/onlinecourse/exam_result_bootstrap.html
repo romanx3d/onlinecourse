@@ -38,12 +38,16 @@
 <div class="container-fluid">
     {% if grade > 80 %}
     <div class="alert alert-success">
-       Success!
+       Success! Your grade is {{grade}} / 100!
     </div>
         {% else %}
         <div class="alert alert-danger">
-            Fail!
+            Fail! Your grade is {{grade}} / 100!
         </div>
+        {% for choice in submission_ids.all %}
+        <div class="card mt-1">
+            <div class="card-header"><h5>{{ choice.content}}</h5></div>
+            {% endfor %}
         <a class="btn btn-link text-danger" href="">Re-test</a>
         {% endif %}
         <div class="card-columns-vertical mt-1">

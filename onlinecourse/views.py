@@ -147,10 +147,11 @@ def show_exam_result(request, course_id, submission_id):
     template_name = 'onlinecourse/exam_result_bootstrap.html'
     choices=Submission.objects.get(pk=submission_id)
     course=Course.objects.get(pk=course_id)
-    context['course']= course.name
-    context['grade']="good"
-    context['selected_ids']=choices
+    context['course']= course
+    context['grade']=33
+    context['selected_ids']=choices.chocies
     context['course_details']=course.description
+    
     return render(request, template_name, context)
 
 
